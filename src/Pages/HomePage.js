@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../Components/Footer'
 import Header from '../Components/Header'
 
 const HomePage = () => {
@@ -7,7 +8,7 @@ const HomePage = () => {
      <main>
     <section>
 <div className="container mx-auto">
-    <h1 className="text-4xl font-bold mt-8 mb-6 text-center">
+    <h1 className="text-4xl font-bold mt-10 mb-6 text-center">
       Welcome to Du'as Guide
     </h1>
     
@@ -72,9 +73,9 @@ data-te-carousel-slide>
 </div> */}
 
 <div className='py-10 px-60 '>
-<div className='flex justify-center w-full bg-black text-white py-10 px-2 rounded-3xl'>
+<div className='flex justify-center items-center h-full w-full bg-black text-white py-10 px-2 rounded-3xl'>
 <div className='w-3/4'>
-<h2 className='text-3xl pt-5 font-bold  leading-tight'>Sudah Berdo'a <br/> Hari Ini?</h2>
+<h2 className='text-5xl font-bold  leading-tight m-auto'>Sudah Berdo'a <br/> Hari Ini?</h2>
 </div>
 <div className='w-1/6'>
 <img src="sholat.png" alt="Person"/>
@@ -235,7 +236,9 @@ data-te-carousel-slide>
 </div>
   </div>
   </section>
-  </main></>
+  </main>
+  <Footer/>
+  </>
    
     
     

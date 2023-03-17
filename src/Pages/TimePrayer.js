@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../Components/Footer'
 import Header from '../Components/Header'
 
 const TimePrayer = () => {
@@ -63,6 +64,8 @@ const TimePrayer = () => {
   </div>
 </div>
 </section>
+<Footer/>
+
     </>
     
   )
