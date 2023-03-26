@@ -1,7 +1,15 @@
 module.exports = {
-  content: [
-    "./src/**/*.{html,js}",
-    "./node_modules/tw-elements/dist/js/**/*.js"
+  mode: 'jit',
+  purge: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './public/index.html',
   ],
-  plugins: [require("tw-elements/dist/plugin")]
-};
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}
