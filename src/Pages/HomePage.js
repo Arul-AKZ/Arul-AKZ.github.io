@@ -1,243 +1,131 @@
-import React from 'react'
-import Footer from '../Components/Footer'
-import Header from '../Components/Header'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Footer from '../Components/Footer';
+import ReactLoading from 'react-loading';
+import Header from '../Components/Header';
+import Swal from 'sweetalert2';
 
 const HomePage = () => {
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
+  const [duas, setDuas] = useState([]);
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+useEffect(() => {
+axios
+.get("https://cors-proxy.fringe.zone/https://doa-doa-api-ahmadramadhan.fly.dev/api",
+{
+  headers: { "Access-Control-Allow-Origin": "http://localhost:3000" },
+})
+.then(response => {
+setDuas(response.data);
+})
+.catch(error => {
+console.log(error);
+});
+}, []);
+
   return (
-    <><Header/>
-     <main>
-    <section>
-<div className="container mx-auto">
-    <h1 className="text-4xl font-bold mt-10 mb-6 text-center">
-      Welcome to Du'as Guide
-    </h1>
+    <>
+    <Header title="HomePage"/>
     
-{/* bagian bawah */}
-    {/* <div
-id="carouselDarkVariant"
-class="relative px-40 mb-16 rounded-md"
-data-te-carousel-init
-data-te-carousel-slide>
-<div
-  class="absolute inset-x-0 bottom-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
-  data-te-carousel-indicators>
-  <button
-    data-te-target="#carouselDarkVariant"
-    data-te-slide-to="0"
-    data-te-carousel-active
-    class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-slate-600 bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-    aria-current="true"
-    aria-label="Slide 1"></button>
-  <button
-    data-te-target="#carouselDarkVariant"
-    class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-slate-600 bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-    data-te-slide-to="1"
-    aria-label="Slide 1"></button>
-</div>
-<div
-  class="relative w-full overflow-hidden after:clear-both after:block after:content-[''] rounded-xl">
-  <div
-    class="relative float-left -mr-[100%] w-full !transform-none opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
-    data-te-carousel-fade
-    data-te-carousel-item
-    data-te-carousel-active>
-    <img
-      src="https://img.freepik.com/free-photo/teenage-girl-with-praying-peace-hope-dreams-concept_1150-9114.jpg?w=826&t=st=1678862379~exp=1678862979~hmac=7d98446cb99358acb69610a50bd5001f04b50ed5d000dc6281d5453e3a38ea07"
-      class="block w-full"
-      alt="Motorbike Smoke" />
-    <div
-      class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
-      <h5 class="text-xl">Have You Prayed Today?</h5>
-      <p>
-      Make Life meaningful by praying.
-      </p>
+    {loading ? (
+        <div className="flex justify-center items-center h-screen">
+          <ReactLoading type="spin" color="#718096" height={50} width={50}/>
+          <h1 className='px-5 text-2xl font-bold text-gray-600'>Load data</h1>
+        </div>
+      ) : (
+      <main>
+        <section id='bg-loading' className='bg-loading'>
+    <div className="container mx-auto">
+        <h1 className="text-4xl font-bold mt-10 text-center">
+          Welcome to Du'as Guide
+        </h1>
+        
+    {/* bagian bawah */}
+        
+    <div className='py-10 px-60 '>
+    <div className='flex justify-center items-center h-full w-full bg-black text-white py-10 px-2 rounded-3xl'>
+    <div className='w-3/4'>
+    <h2 className='text-5xl font-bold  leading-tight m-auto'>Have you prayed <br/> today?</h2>
     </div>
-  </div>
-  <div
-    class="relative float-left -mr-[100%] hidden w-full !transform-none opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
-    data-te-carousel-fade
-    data-te-carousel-item>
-    <img
-      src="https://img.freepik.com/free-photo/quran-being-held-hands-close-up_23-2148444089.jpg?w=826&t=st=1678862449~exp=1678863049~hmac=2713a176b7c1c859e080721f698807643b5afe51b15f856a7cd7aabda9fd02a1"
-      class="block w-full"
-      alt="Mountaintop" />
-    <div
-      class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
-      <h5 class="text-xl">Do you Read Quran right Know?</h5>
-      <p>
-      increase the reward and goodness
-      </p>
+    <div className='w-1/6'>
+    <img src="sholat.png" alt="Person"/>
     </div>
-  </div>
-</div>
-</div> */}
+    </div>
+    </div>
+    
+    {/* bagian 1 */}
+    <div className='flex flex-wrap justify-center rounded-md card-shadow'> 
+              {duas.map((dua) => (
+    
+                <div className="flex py-5 px-5 w-56">
+                  <div className="rounded-xl bg-white shadow-lg dark:bg-neutral-700 p-5">
+                      <h5 className="mb-8 text-lg font-medium text-neutral-800 dark:text-neutral-50">{dua.id}. {dua.doa}</h5>
+                      
+                      
+                      {modalOpen && (
+                  <div className="fixed inset-0 z-50 flex items-center justify-center">
 
-<div className='py-10 px-60 '>
-<div className='flex justify-center items-center h-full w-full bg-black text-white py-10 px-2 rounded-3xl'>
-<div className='w-3/4'>
-<h2 className='text-5xl font-bold  leading-tight m-auto'>Sudah Berdo'a <br/> Hari Ini?</h2>
-</div>
-<div className='w-1/6'>
-<img src="sholat.png" alt="Person"/>
-</div>
-</div>
-</div>
+                  <div className="relative max-w-2xl md:h-auto">
 
-{/* bagian 1 */}
-<div className='flex justify-evenly'>
-<div class="flex justify-center py-10">
-<div
-  class="block max-w-sm rounded-xl bg-white shadow-lg dark:bg-neutral-700">
-  <a href="#!" data-te-ripple-init data-te-ripple-color="light">
-    <img
-      class="rounded-t-xl"
-      src="mob.jpg"
-      alt="datadummy" />
-  </a>
-  <div class="p-6">
-    <h5
-      class="mb-8 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-      Du'as wake Up
-    </h5>
-    <button
-      type="button"
-      class="inline-block rounded-md bg-slate-600 px-4 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-slate-900 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-      data-te-ripple-init
-      data-te-ripple-color="light">
-      Read More
-    </button>
-  </div>
-</div>
-</div>
-<div class="flex justify-center py-10">
-<div
-  class="block max-w-sm rounded-xl bg-white shadow-lg dark:bg-neutral-700">
-  <a href="#!" data-te-ripple-init data-te-ripple-color="light">
-    <img
-      class="rounded-t-xl"
-      src="mob.jpg"
-      alt="datadummy" />
-  </a>
-  <div class="p-6">
-    <h5
-      class="mb-8 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-      Du'as wake Up
-    </h5>
-    <button
-      type="button"
-      class="inline-block rounded-md bg-slate-600 px-4 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-slate-900 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-      data-te-ripple-init
-      data-te-ripple-color="light">
-      Read More
-    </button>
-  </div>
-</div>
-</div>
-<div class="flex justify-center py-10">
-<div
-  class="block max-w-sm rounded-xl bg-white shadow-lg dark:bg-neutral-700">
-  <a href="#!" data-te-ripple-init data-te-ripple-color="light">
-    <img
-      class="rounded-t-xl"
-      src="mob.jpg"
-      alt="datadummy" />
-  </a>
-  <div class="p-6">
-    <h5
-      class="mb-8 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-      Du'as wake Up
-    </h5>
-    <button
-      type="button"
-      class="inline-block rounded-md bg-slate-600 px-4 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-slate-900 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-      data-te-ripple-init
-      data-te-ripple-color="light">
-      Read More
-    </button>
-  </div>
-</div>
-</div>
-</div>
+                  <div className="relative bg-white rounded-xl">
 
-{/* bagian 2 */}
-<div className='flex justify-evenly'>
-<div class="flex justify-center py-10">
-<div
-  class="block max-w-sm rounded-xl bg-white shadow-lg dark:bg-neutral-700">
-  <a href="#!" data-te-ripple-init data-te-ripple-color="light">
-    <img
-      class="rounded-t-xl"
-      src="mob.jpg"
-      alt="datadummy" />
-  </a>
-  <div class="p-6">
-    <h5
-      class="mb-8 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-      Du'as wake Up
-    </h5>
-    <button
-      type="button"
-      class="inline-block rounded-md bg-slate-600 px-4 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-slate-900 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-      data-te-ripple-init
-      data-te-ripple-color="light">
-      Read More
-    </button>
-  </div>
-</div>
-</div>
-<div class="flex justify-center py-10">
-<div
-  class="block max-w-sm rounded-xl bg-white shadow-lg dark:bg-neutral-700">
-  <a href="#!" data-te-ripple-init data-te-ripple-color="light">
-    <img
-      class="rounded-t-xl"
-      src="mob.jpg"
-      alt="datadummy" />
-  </a>
-  <div class="p-6">
-    <h5
-      class="mb-8 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-      Du'as wake Up
-    </h5>
-    <button
-      type="button"
-      class="inline-block rounded-md bg-slate-600 px-4 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-slate-900 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-      data-te-ripple-init
-      data-te-ripple-color="light">
-      Read More
-    </button>
-  </div>
-</div>
-</div>
-<div class="flex justify-center py-10">
-<div
-  class="block max-w-sm rounded-xl bg-white shadow-lg dark:bg-neutral-700">
-  <a href="#!" data-te-ripple-init data-te-ripple-color="light">
-    <img
-      class="rounded-t-xl"
-      src="mob.jpg"
-      alt="datadummy" />
-  </a>
-  <div class="p-6">
-    <h5
-      class="mb-8 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-      Du'as wake Up
-    </h5>
-    <button
-      type="button"
-      class="inline-block rounded-md bg-slate-600 px-4 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-slate-900 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-      data-te-ripple-init
-      data-te-ripple-color="light">
-      Read More
-    </button>
-  </div>
-</div>
-</div>
-</div>
-  </div>
-  </section>
-  </main>
-  <Footer/>
+                    {/* bagian judul sampai isian */}
+                  <div class="flex items-start justify-between p-4">
+                <h3 class="text-xl font-semibold text-gray-900">
+                {dua.id}. {dua.doa}
+                </h3>
+            </div>
+            <div class="p-6 space-y-6">
+                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                {dua.ayat}
+                </p>
+                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                {dua.latin}
+                </p>
+                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                {dua.artinya}
+                </p>
+            </div>
+
+                  <div className="p-3 bg-neutral-100 dark:bg-neutral-800 border-t border-neutral-200 dark:border-neutral-700">
+                    {/* tombol buat nutup */}
+                    <button type="button" class="ml-5 text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-2 py-2 text-center dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800" onClick={() => setModalOpen(false)}>Close</button>
+                    <button 
+                    type="button" 
+                    class="ml-10 text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-10 py-2 text-center dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800"
+                    onClick={() => { Swal.fire('Added to favorites!'); setModalOpen(false);
+                    }} >Favorite</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+          
+          {/* Tombol buat open */}
+          <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-2 py-2 text-center dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800" onClick={() => setModalOpen(true)}>Read More</button>
+          {/* onClick={() => setModalOpen(false)} */}
+          
+          
+                  </div>
+                </div>
+              ))}
+            </div>
+    
+          </div>
+        </section>
+      </main>
+      )};
+  <Footer />
   </>
    
     

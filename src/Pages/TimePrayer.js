@@ -1,73 +1,69 @@
-import React from 'react'
-import Footer from '../Components/Footer'
-import Header from '../Components/Header'
+import React, { useState, useEffect } from 'react';
+import Footer from '../Components/Footer';
+import Header from '../Components/Header';
+import ReactLoading from 'react-loading';
+import axios from 'axios';
 
 const TimePrayer = () => {
+  const [loading, setLoading] = useState(true);
+  const [prayerTimes, setPrayerTimes] = useState(null);
+  const [date, setDate] = useState('');
+
+  useEffect(() => {
+    axios
+      .get("https://api.aladhan.com/v1/timingsByCity?city=Jakarta&country=Indonesia&method=8")
+      .then(response => {
+        setPrayerTimes(response.data.data.timings);
+        setDate(response.data.data.date.readable);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <>
-<Header/>
-<section>
-{/* // bagian atas */}
-    <div className='flex justify-center w-full text-slate-900 py-20 px-80'>
-<div className='w-3/6'>
-  <h2 className='text-3xl pt-12 font-extrabold'>Time Prayer</h2>
-</div>
-<div className='w-1/5'>
-<img src="sholat.png" alt="Person"/>
-</div>
-</div>
-
-{/* // bagian bawah */}
-<div class="flex items-center gap-8 pb-10 px-28 rounded-md justify-center bg-white shadow-lg">
-  <div class="w-1/2">
-    <img src="shubuh.png" alt="Shubuh" class="w-full h-40 object-cover rounded-md shadow-md "/>
-  </div>
-  <div class="w-1/5">
-    <h2 class="text-4xl font-bold text-gray-800 mb-6">Shubuh</h2>
-    <p class="text-xl text-gray-700">04:00</p>
-  </div>
-</div>
-<div class="flex items-center gap-8 pb-10 px-28 rounded-md justify-center bg-white shadow-lg">
-  <div class="w-1/2">
-    <img src="dzuhur.png" alt="Shubuh" class="w-full h-40 object-cover rounded-md shadow-md "/>
-  </div>
-  <div class="w-1/5">
-    <h2 class="text-4xl font-bold text-gray-800 mb-6">Dzuhur</h2>
-    <p class="text-xl text-gray-700">12:00</p>
-  </div>
-</div>
-<div class="flex items-center gap-8 pb-10 px-28 rounded-md justify-center bg-white shadow-lg">
-  <div class="w-1/2">
-    <img src="ashar.png" alt="Shubuh" class="w-full h-40 object-cover rounded-md shadow-md "/>
-  </div>
-  <div class="w-1/5">
-    <h2 class="text-4xl font-bold text-gray-800 mb-6">Ashar</h2>
-    <p class="text-xl text-gray-700">15:00</p>
-  </div>
-</div>
-<div class="flex items-center gap-8 pb-10 px-28 rounded-md justify-center bg-white shadow-lg">
-  <div class="w-1/2">
-    <img src="maghrib.png" alt="Shubuh" class="w-full h-40 object-cover rounded-md shadow-md "/>
-  </div>
-  <div class="w-1/5">
-    <h2 class="text-4xl font-bold text-gray-800 mb-6">Magrib</h2>
-    <p class="text-xl text-gray-700">18:00</p>
-  </div>
-</div>
-<div class="flex items-center gap-8 pb-10 px-28 rounded-md justify-center bg-white shadow-lg">
-  <div class="w-1/2">
-    <img src="isya.png" alt="Shubuh" class="w-full h-40 object-cover rounded-md shadow-md "/>
-  </div>
-  <div class="w-1/5">
-    <h2 class="text-4xl font-bold text-gray-800 mb-6">Isya</h2>
-    <p class="text-xl text-gray-700">19:00</p>
-  </div>
-</div>
-</section>
-<Footer/>
+      <Header title={`Jadwal Sholat - ${date}`} />
+      {loading ? (
+        <div className="flex justify-center items-center h-screen">
+          <ReactLoading type="spin" color="#718096" height={50} width={50} />
+          <h1 className='px-5 text-2xl font-bold text-gray-400'>Loading data</h1>
+        </div>
+      ) : (
+        <div className="p-8">
+          <h2 className="text-3xl font-bold mb-4">Jadwal Sholat Hari Ini - {date}</h2>
+          <div className="grid grid-cols-3 gap-4 text-center">
+            <div className="bg-slate-500 p-4 rounded-lg">
+              <h3 className="text-white text-lg font-bold mb-2">Imsak</h3>
+              <p className="text-white text-sm mb-2">{prayerTimes?.Fajr}</p>
+            </div>
+            <div className="bg-slate-500 p-4 rounded-lg">
+              <h3 className="text-white text-lg font-bold mb-2">Subuh</h3>
+              <p className="text-white text-sm mb-2">{prayerTimes?.Sunrise}</p>
+            </div>
+            <div className="bg-slate-500 p-4 rounded-lg">
+              <h3 className="text-white text-lg font-bold mb-2">Dzuhur</h3>
+              <p className="text-white text-sm mb-2">{prayerTimes?.Dhuhr}</p>
+            </div>
+            <div className="bg-slate-500 p-4 rounded-lg">
+              <h3 className="text-white text-lg font-bold mb-2">Ashar</h3>
+              <p className="text-white text-sm mb-2">{prayerTimes?.Asr}</p>
+            </div>
+            <div className="bg-slate-500 p-4 rounded-lg">
+              <h3 className="text-white text-lg font-bold mb-2">Maghrib</h3>
+              <p className="text-white text-sm mb-2">{prayerTimes?.Maghrib}</p>
+            </div>
+            <div className="bg-slate-500 p-4 rounded-lg">
+              <h3 className="text-white text-lg font-bold mb-2">Isya</h3>
+              <p className="text-white text-sm mb-2">{prayerTimes?.Isha}</p>
+            </div>
+          </div>
+        </div>
+      )}
+      <Footer />
 
     </>
-    
   )
 }
 

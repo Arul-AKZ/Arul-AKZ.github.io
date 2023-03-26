@@ -1,11 +1,28 @@
-import React from 'react'
 import Footer from '../Components/Footer'
 import Header from '../Components/Header'
+import ReactLoading from 'react-loading';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Profile = () => {
+  
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000);
+  })
+  
   return (
     <>
-    <Header/>
+    <Header title="Profile"/>
+    {loading ? (
+          <div className="flex justify-center items-center h-screen">
+            <ReactLoading type="spin" color="#718096" height={50} width={50} />
+            <h1 className='px-5 text-2xl font-bold text-gray-600'>Load data</h1>
+          </div>
+        ) : (
 
     <section id='profile'>
 
@@ -27,160 +44,18 @@ const Profile = () => {
 {/* bagian bawah profile */}
 <h2 className='text-center bg-center py-10 text-3xl '>Favorite</h2>
 
-{/* card atas */}
 <div className='px-5'>
-<div className='flex justify-evenly'>
-<div class="flex justify-center py-10">
-  <div
-    class="block max-w-sm rounded-xl bg-white shadow-lg dark:bg-neutral-700">
-    <a href="#!" data-te-ripple-init data-te-ripple-color="light">
-      <img
-        class="rounded-t-xl"
-        src="mob.jpg"
-        alt="datadummy" />
-    </a>
-    <div class="p-6">
-      <h5
-        class="mb-8 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-        Du'as wake Up
-      </h5>
-      <button
-        type="button"
-        class="inline-block rounded-md bg-slate-600 px-4 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-slate-900 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-        data-te-ripple-init
-        data-te-ripple-color="light">
-        Read More
-      </button>
-    </div>
-  </div>
-</div>
-<div class="flex justify-center py-10">
-  <div
-    class="block max-w-sm rounded-xl bg-white shadow-lg dark:bg-neutral-700">
-    <a href="#!" data-te-ripple-init data-te-ripple-color="light">
-      <img
-        class="rounded-t-xl"
-        src="mob.jpg"
-        alt="datadummy" />
-    </a>
-    <div class="p-6">
-      <h5
-        class="mb-8 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-        Du'as wake Up
-      </h5>
-      <button
-        type="button"
-        class="inline-block rounded-md bg-slate-600 px-4 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-slate-900 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-        data-te-ripple-init
-        data-te-ripple-color="light">
-        Read More
-      </button>
-    </div>
-  </div>
-</div>
-<div class="flex justify-center py-10">
-  <div
-    class="block max-w-sm rounded-xl bg-white shadow-lg dark:bg-neutral-700">
-    <a href="#!" data-te-ripple-init data-te-ripple-color="light">
-      <img
-        class="rounded-t-xl"
-        src="mob.jpg"
-        alt="datadummy" />
-    </a>
-    <div class="p-6">
-      <h5
-        class="mb-8 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-        Du'as wake Up
-      </h5>
-      <button
-        type="button"
-        class="inline-block rounded-md bg-slate-600 px-4 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-slate-900 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-        data-te-ripple-init
-        data-te-ripple-color="light">
-        Read More
-      </button>
-    </div>
-  </div>
-</div>
-</div>
-{/* card bawah */}
-<div className='flex justify-evenly'>
-<div class="flex justify-center py-10">
-  <div
-    class="block max-w-sm rounded-xl bg-white shadow-lg dark:bg-neutral-700">
-    <a href="#!" data-te-ripple-init data-te-ripple-color="light">
-      <img
-        class="rounded-t-xl"
-        src="mob.jpg"
-        alt="datadummy" />
-    </a>
-    <div class="p-6">
-      <h5
-        class="mb-8 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-        Ar rahman
-      </h5>
-      <button
-        type="button"
-        class="inline-block rounded-md bg-slate-600 px-4 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-slate-900 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-        data-te-ripple-init
-        data-te-ripple-color="light">
-        Read More
-      </button>
-    </div>
-  </div>
-</div>
-<div class="flex justify-center py-10">
-  <div
-    class="block max-w-sm rounded-xl bg-white shadow-lg dark:bg-neutral-700">
-    <a href="#!" data-te-ripple-init data-te-ripple-color="light">
-      <img
-        class="rounded-t-xl"
-        src="mob.jpg"
-        alt="datadummy" />
-    </a>
-    <div class="p-6">
-      <h5
-        class="mb-8 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-        al qudus
-      </h5>
-      <button
-        type="button"
-        class="inline-block rounded-md bg-slate-600 px-4 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-slate-900 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-        data-te-ripple-init
-        data-te-ripple-color="light">
-        Read More
-      </button>
-    </div>
-  </div>
-</div>
-<div class="flex justify-center py-10">
-  <div
-    class="block max-w-sm rounded-xl bg-white shadow-lg dark:bg-neutral-700">
-    <a href="#!" data-te-ripple-init data-te-ripple-color="light">
-      <img
-        class="rounded-t-xl"
-        src="mob.jpg"
-        alt="datadummy" />
-    </a>
-    <div class="p-6">
-      <h5
-        class="mb-8 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-        ar rahim
-      </h5>
-      <button
-        type="button"
-        class="inline-block rounded-md bg-slate-600 px-4 pb-3 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-slate-900 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-        data-te-ripple-init
-        data-te-ripple-color="light">
-        Read More
-      </button>
-    </div>
-  </div>
-</div>
-</div>
+{/* card untuk doa */}
+
+
+{/* card untuk asmaul */}
+      <h1>TabLayout UnderWorking</h1>
+      
+      
 </div>
 
     </section>
+    )}
     <Footer/>
     </>
   )
