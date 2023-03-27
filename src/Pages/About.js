@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Footer from '../Components/Footer';
 import Header from '../Components/Header';
 import ReactLoading from 'react-loading';
+import  person from "../image/ahmad.png"
+
 
 const About = () => {
   const [loading, setLoading] = useState(true);
@@ -35,7 +37,7 @@ const About = () => {
               <div className="w-full md:w-1/2 p-6 px-10 flex justify-center items-center">
                 <img
                   className="w-96 h-auto object-cover rounded-2xl"
-                  src="ahmad.png"
+                  src={person}
                   alt="Ahmad"
                 />
               </div>

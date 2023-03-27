@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import  sujud from "../image/android-chrome-192x192.png"
+
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,7 +16,7 @@ const Header = () => {
     <header class="bg-white text-slate-600 shadow-md px-5 py-3">
   <div class="flex items-center justify-between px-4 py-3">
     <div class="flex items-center">
-      <img src="android-chrome-192x192.png" alt="Person" class="h-8 mr-2"/>
+      <img src={sujud} alt="Person" class="h-8 mr-2"/>
       <h1 class="font-bold text-lg">Du'as Guide</h1>
     </div>
     <div class="hidden md:flex items-center space-x-4">
