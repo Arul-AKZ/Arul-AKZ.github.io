@@ -9,6 +9,7 @@ import TimePrayer from './Pages/TimePrayer'
 import Contact from './Pages/Contact';
 import About from './Pages/About';
 import Duas from './Pages/Duas';
+import Favorite from './Pages/Favorite';
 
 const App = () => {
 
@@ -34,8 +35,10 @@ const App = () => {
           <Route path='/duas' element={<Duas />} />
           <Route path='/timeprayer' element={<TimePrayer />} />
           <Route path='/asmaul' element={<Asmaul />} />
+
           <Route path='/contact' element={<Contact />} />
           <Route path='/about' element={<About />} />
+          <Route path='/favorite' element={<Favorite />} />
         </Routes>
       </BrowserRouter>
     )}
