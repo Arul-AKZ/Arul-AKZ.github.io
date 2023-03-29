@@ -1,7 +1,7 @@
 {
   "name": "project-akhir",
   "version": "0.1.0",
-  "homepage": "https://Arul-AKZ.github.io/",
+  "homepage": "https://arul-akz.github.io/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
@@ -57,6 +57,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "tailwindcss": "^3.2.7"
   }
 }

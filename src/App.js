@@ -5,10 +5,10 @@ import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Asmaul from './Pages/Asmaul'
 import HomePage from './Pages/HomePage'
-import Profile from './Pages/Profile'
 import TimePrayer from './Pages/TimePrayer'
 import Contact from './Pages/Contact';
 import About from './Pages/About';
+import Duas from './Pages/Duas';
 
 const App = () => {
 
@@ -31,7 +31,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path='/' exact element={<HomePage />} />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/duas' element={<Duas />} />
           <Route path='/timeprayer' element={<TimePrayer />} />
           <Route path='/asmaul' element={<Asmaul />} />
           <Route path='/contact' element={<Contact />} />

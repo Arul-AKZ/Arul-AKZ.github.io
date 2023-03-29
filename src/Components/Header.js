@@ -26,8 +26,8 @@ const Header = () => {
       <a href="#" class="hover:text-gray-400">Asmaul Husna</a> */}
 
         <Link to={`/`} className="hover:text-gray-400" >Home</Link>
-        <Link to={`/profile`} className="hover:text-gray-400" >Profile</Link>
         <Link to={`/timeprayer`} className="hover:text-gray-400" >Time Prayer</Link>
+        <Link to={`/duas`} className="hover:text-gray-400" >Du'as</Link>
         <Link to={`/asmaul`} className="hover:text-gray-400" >Asmaul Husna</Link>
 
       <div class="flex items-center justify-center">
