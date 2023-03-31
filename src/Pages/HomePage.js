@@ -44,7 +44,7 @@ const HomePage = () => {
         </div>
       ) : (
       <main>
-        <section id='bg-loading' className='bg-loading'>
+        <section className='bg-white'>
     <div className="container mx-auto">
         <h1 className="text-4xl font-bold mt-10 text-center">
           Welcome to Du'as Guide 
@@ -65,6 +65,9 @@ const HomePage = () => {
     </div>
     
     {/* bagian 1 */}
+
+    <div class="bg-white">
+  <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
     <div className='mt-5 mb-20 flex flex-wrap px-56'>
     <div class="max-w-sm p-6 mx-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Asmaul Time!!</h5>
@@ -83,6 +86,11 @@ const HomePage = () => {
     </a>
 </div>
     </div>
+  </div>
+</div>
+
+
+    
           </div>
         </section>
       </main>

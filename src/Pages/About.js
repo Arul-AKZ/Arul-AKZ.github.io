@@ -18,8 +18,8 @@ const About = () => {
     <>
       <Header title="About" />
       {loading ? (
-        <div className="flex justify-center items-center h-screen">
-          <ReactLoading type="bars" color="#718096" />
+        <div className="flex justify-center bg-about items-center h-screen">
+          <ReactLoading type="bars" color="white" />
         </div>
       ) : (
         <section class="px-10 h-screen flex items-center justify-center">

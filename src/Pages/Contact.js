@@ -17,8 +17,8 @@ const Contact = () => {
     <>
     <Header title="Contact"/>
     {loading ? (
-        <div className="flex justify-center items-center h-screen">
-          <ReactLoading type="bars" color="#718096" />
+        <div className="flex justify-center bg-contact items-center h-screen">
+          <ReactLoading type="bars" color="white" />
         </div>
       ) : ( 
       <div class="pb-10">

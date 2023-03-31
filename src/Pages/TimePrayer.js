@@ -42,7 +42,7 @@ const TimePrayer = () => {
           <h1 className='px-5 text-2xl font-bold text-gray-400'>Loading data</h1>
         </div>
       ) : (
-        <div className="p-8 text-center mt-5">
+        <div className="p-8 text-center mt-5 mb-10">
           <h3 className="text-3xl font-bold mb-4">Time Right Now: {currentTime}</h3>
           <div className="grid grid-cols-3 gap-4 text-center pt-5">
             <div className="bg-white shadow-lg dark:bg-neutral-700 p-4 rounded-lg">

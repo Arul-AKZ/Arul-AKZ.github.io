@@ -31,12 +31,12 @@ const Asmaul = () => {
     <>
       <Header title="Asmaul" />
       {loading ? (
-        <div className="flex justify-center items-center h-screen ">
-          <ReactLoading type="spin" color="#718096" height={50} width={50} />
-          <h1 className="px-5 text-2xl font-bold text-gray-600">Load data</h1>
+        <div className="flex justify-center items-center bg-di h-screen ">
+          <ReactLoading type="spin" color="white" height={50} width={50} />
+          <h1 className="px-5 text-2xl font-bold text-white">Load data</h1>
         </div>
       ) : (
-        <div className="py-16">
+        <div className="py-16 bg-white">
 
           <h1 className="text-center bg-center font-medium text-3xl text-black">
             99 Asmaul Husna

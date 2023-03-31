@@ -10,6 +10,9 @@ import Contact from './Pages/Contact';
 import About from './Pages/About';
 import Duas from './Pages/Duas';
 import Favorite from './Pages/Favorite';
+import Profile from './Pages/Profile';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
 
 const App = () => {
 
@@ -31,14 +34,23 @@ const App = () => {
     ) : (
       <BrowserRouter>
         <Routes>
+          {/* header */}
           <Route path='/' exact element={<HomePage />} />
           <Route path='/duas' element={<Duas />} />
           <Route path='/timeprayer' element={<TimePrayer />} />
           <Route path='/asmaul' element={<Asmaul />} />
 
+          {/* footer */}
           <Route path='/contact' element={<Contact />} />
           <Route path='/about' element={<About />} />
           <Route path='/favorite' element={<Favorite />} />
+          <Route path='/profile' element={<Profile/>} />
+
+          {/* auth */}
+          <Route path='/login' element={<Login/>} />
+          <Route path='/register' element={<Register/>} />
+
+
         </Routes>
       </BrowserRouter>
     )}

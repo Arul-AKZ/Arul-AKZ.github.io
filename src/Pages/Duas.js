@@ -14,11 +14,11 @@ const Duas = () => {
 
   const getDoaModal = async (id) => {
     const res = await axios.get(
-      `https://proxy.cors.sh/https://doa-doa-api-ahmadramadhan.fly.dev/api/${id}`
+      `https://cors.eu.org/https://doa-doa-api-ahmadramadhan.fly.dev/api/`
     );
 
+    console.log(res.data[0]);
     setTimeout(() => {
-    setModalOpen(res.data[0]);
     setLoading(false);
     }, 3000);
 
@@ -30,10 +30,11 @@ const Duas = () => {
   }, []);
 
   useEffect(() => {
-    axios.get("https://cors-proxy.fringe.zone/https://doa-doa-api-ahmadramadhan.fly.dev/api",
-    {
-      headers: { "Access-Control-Allow-Origin": "http://localhost:3000" },
-    })
+    axios.get("https://cors.eu.org/https://doa-doa-api-ahmadramadhan.fly.dev/api",
+    // {
+    //   headers: { "Access-Control-Allow-Origin": "http://localhost:3000" },
+    // }
+    )
     .then(response => {
     setDuas(response.data);
     })
@@ -46,13 +47,13 @@ const Duas = () => {
     <>
     <Header title="Duas"/>
     {loading ? (
-          <div className="flex justify-center items-center h-screen">
-            <ReactLoading type="spin" color="#718096" height={50} width={50} />
-            <h1 className='px-5 text-2xl font-bold text-gray-600'>Load data</h1>
+          <div className="flex justify-center bg-dua items-center h-screen">
+            <ReactLoading type="spin" color="white" height={50} width={50} />
+            <h1 className='px-5 text-2xl font-bold text-white'>Load data</h1>
           </div>
         ) : (
 
-    <section id='Duas' className='pb-10'>
+    <section id='Duas' className='pb-10 bg-white'>
 
       <h1 className="text-center bg-center font-medium text-3xl text-black pt-10">
             Du'as Guide
@@ -114,6 +115,7 @@ const Duas = () => {
                 </div>
               ))}
             </div>
+
     </section>
     )}
     <Footer/>

@@ -14,10 +14,13 @@ const Footer = () => {
         <Link to={`/about`} className="hover:text-gray-400" >About me</Link>
         </li>
         <li class="mr-4 hover:underline md:mr-6">
-        <Link to={`/contact`} className="hover:text-gray-400" >Contact me</Link>
+        <Link to={`/contact`} className="hover:text-gray-400" >Contact Me</Link>
         </li>
         <li class="mr-4 hover:underline md:mr-6">
         <Link to={`/favorite`} className="hover:text-gray-400" >Favorite</Link>
+        </li>
+        <li class="mr-4 hover:underline md:mr-6">
+        <Link to={`/profile`} className="hover:text-gray-400" >Profile</Link>
         </li>
     </ul>
 </footer>
