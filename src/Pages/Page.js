@@ -96,6 +96,18 @@ const Duas = () => {
                             >
                               {modalDoa.id}. {modalDoa.doa}
                             </h5>
+
+                            <div className="p-6 space-y-6">
+                            <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                              {modalDoa.ayat}
+                            </p>
+                            <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                              {modalDoa.latin}
+                            </p>
+                            <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                              {modalDoa.artinya}
+                            </p>
+                          </div>
                             <button
                               type="button"
                               class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"

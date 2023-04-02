@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     
 
-<footer class="bg-slate-900 rounded-t-lg shadow dark:bg-gray-900">
+<footer class="bg-slate-900 rounded-t-lg shadow dark:bg-gray-900 sticky-footer">
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between px-5">
         <span class="block text-sm text-white sm:text-center dark:text-gray-400">© 2023 <a href="https://www.behance.net/ahmadkzahid" class="hover:underline">ZtudioAhmad™</a>. All Rights Reserved.</span>

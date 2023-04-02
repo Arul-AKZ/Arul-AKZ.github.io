@@ -37,6 +37,8 @@ const About = () => {
       <li>Age: 17</li>
       <li>Location: Cikarang, Indonesia</li>
       <li>Email: ahmadkhairul2135@gmailcom</li>
+      <li>Instagram:<a href="https://www.instagram.com/ahmad_khairul_zahid/" class="hover:underline"> @Ahmad_Khairul_Zahid</a></li>
+      <li>Facebook:<a href="https://www.facebook.com/ahmad.khairul.56829446/" class="hover:underline"> Ahmad Khairul</a></li> 
     </ul>
   </div>
 </div>
