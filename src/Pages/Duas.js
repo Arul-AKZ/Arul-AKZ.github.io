@@ -86,6 +86,7 @@ const Duas = () => {
             {m.artinya}
           </p>
         </div>
+        
         <div className="p-3 bg-neutral-100 dark:bg-neutral-800 border-t border-neutral-200 dark:border-neutral-700">
           <button
             type="button"

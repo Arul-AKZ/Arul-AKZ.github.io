@@ -56,16 +56,18 @@ const HomePage = () => {
         
     {/* bagian bawah */}
         
-    <div className='py-8 px-60 '>
-    <div className='flex justify-center items-center h-full w-full bg-black text-white py-5 px-2 rounded-3xl'>
-    <div className='w-3/4'>
-    <h2 className='text-3xl font-bold  leading-tight m-auto'>Have you prayer <br/> today?</h2>
+    <div className='py-8 px-60'>
+  <div className='flex justify-center items-center h-full w-full bg-black text-white py-5 px-2 rounded-3xl'>
+    <div className='w-3/4 text-center'>
+      <h2 className='text-4xl font-bold leading-tight'>Have you prayed today?</h2>
+      <p className='mt-4 text-lg'>Take a Dua and asmaul husna to connect with god.</p>
     </div>
-    <div className='w-1/6'> 
-    <img src={sujud} alt="Person" className='h-32'/>
+    <div className='w-1/4 flex justify-center items-center'>
+      <img src={sujud} alt="Person" className='h-40'/>
     </div>
-    </div>
-    </div>
+  </div>
+</div>
+
     
     {/* bagian 1 */}
       <div class="flex flex-wrap gap-8 mb-10 mt-4 justify-center">
