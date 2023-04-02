@@ -13,6 +13,7 @@ import Favorite from './Pages/Favorite';
 import Profile from './Pages/Profile';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
+import Page from './Pages/Page';
 
 const App = () => {
 
@@ -27,9 +28,9 @@ const App = () => {
   return (
     <>
     {loading ? (
-      <div className='flex h-screen justify-center items-center bg-gradient-to-r '>
-        <ReactLoading type="spin" color="slate" height={100} width={100} />
-        <h1 className='mx-5 text-2xl text-slate-700 font-extrabold'>Wait a Second...</h1>
+      <div className='flex h-screen justify-center items-center bg-loading '>
+        <ReactLoading type="spin" color="white" height={100} width={100} />
+        <h1 className='mx-5 text-2xl text-white font-extrabold'>Wait a Second...</h1>
       </div>
     ) : (
       <BrowserRouter>
@@ -49,6 +50,9 @@ const App = () => {
           {/* auth */}
           <Route path='/login' element={<Login/>} />
           <Route path='/register' element={<Register/>} />
+
+          <Route path='/page' element={<Page/>} />
+
 
 
         </Routes>

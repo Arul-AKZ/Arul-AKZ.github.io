@@ -10,17 +10,19 @@ const Contact = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 1000);
   }, []);
 
   return (
     <>
-    <Header title="Contact"/>
     {loading ? (
         <div className="flex justify-center bg-contact items-center h-screen">
           <ReactLoading type="bars" color="white" />
+          <h1 className='px-5 text-2xl font-bold text-white'>Load Contact</h1>
         </div>
       ) : ( 
+      <>
+      <Header title="Contact"/>
       <div class="pb-10">
       <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
           <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white pb-10">Contact Me</h2>
@@ -41,8 +43,10 @@ const Contact = () => {
           </form>
       </div>
     </div>
-    )}
     <Footer/>
+      </>
+      
+    )}
     </>
   )
 }

@@ -10,20 +10,21 @@ const Favorite = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 1000);
   }, []);
   
   return (
     <>
-    <Header/>
     {loading ? (
         <div className="flex justify-center bg-favorite items-center h-screen bg-profile">
           <ReactLoading type="bars" color="white" />
+          <h1 className='px-5 text-2xl font-bold text-white'>Load Favorite</h1>
         </div>
       ) : ( 
-
-    <section class="py-10 mb-10">
-      <h1 className='text-xl text-center'>Favorite</h1>
+        <>
+    <Header/>
+          <div class="py-10 mb-10">
+          <h1 className='text-xl text-center'>Favorite</h1>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <ul class="mt-6">
       <li class=" flex-col text-center bg-white rounded-lg shadow">
@@ -111,9 +112,10 @@ const Favorite = () => {
       </li>
     </ul>
   </div>
-</section>
-      )}
+</div>
     <Footer/>
+        </>
+      )}
     </>
   )
 }

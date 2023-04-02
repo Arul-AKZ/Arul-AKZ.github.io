@@ -13,17 +13,13 @@ const Header = () => {
   };
 
   return (
-    <header class="bg-white text-slate-600 shadow-md px-5 py-3">
+    <header class="bg-white text-slate-900 shadow-md px-5 py-3">
   <div class="flex items-center justify-between px-4 py-3">
     <div class="flex items-center">
       <img src={sujud} alt="Person" class="h-8 mr-2"/>
       <h1 class="font-bold text-lg">Du'as Guide</h1>
     </div>
     <div class="hidden md:flex items-center space-x-4">
-      {/* <a href="#" class="hover:text-gray-400">Home</a> */}
-      {/* <a href="#" class="hover:text-gray-400">Profile</a> */}
-      {/* <a href="#" class="hover:text-gray-400">Time Prayer</a>
-      <a href="#" class="hover:text-gray-400">Asmaul Husna</a> */}
 
         <Link to={`/`} className="hover:text-gray-400" >Home</Link>
         <Link to={`/timeprayer`} className="hover:text-gray-400" >Time Prayer</Link>
